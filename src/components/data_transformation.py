@@ -10,6 +10,8 @@ from sklearn.preprocessing import OneHotEncoder,StandardScaler
 from exception import CustomException
 from logger import logging
 import os
+from utils import save_object
+
 
 
 
@@ -34,7 +36,7 @@ class DataTransformation:
             num_pipeline= Pipeline(
                 steps=[
                 ("imputer",SimpleImputer(strategy="median")),
-                ("scaler",StandardScaler(with_mean=False))
+                ("scaler",StandardScaler())
 
                 ]
             )
@@ -91,6 +93,13 @@ class DataTransformation:
             test_arr = np.c_[input_feature_test_arr, np.array(target_feature_test_df)]
 
             logging.info(f"Saved preprocessing object.")
+
+            save_object(
+
+                file_path=self.data_transformation_config.preprocessor_obj_file_path,
+                obj=preprocessing_obj
+
+            )
 
 
             return (
