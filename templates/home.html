@@ -1,0 +1,47 @@
+<html>
+<body>
+    <div class="login">
+       <h1>Mr Beast status</h1>
+       "viewCount","duration_seconds","commentCount"
+       <form action="{{ url_for('predict_datapoint')}}" method="post">
+        <h1>
+            <legend>YouTube channel</legend>
+        </h1>
+
+        <div class="mb-3">
+            <label class="form-label">Views</label>
+            <input class="form-control" type="number" name="views"
+                placeholder="Enter your views" />
+        </div>
+
+
+        <div class="mb-3">
+            <label class="form-label">Duration in seconds</label>
+            <input class="form-control" type="number" name="duration"
+                placeholder="Enter your duration" />
+        </div>
+
+
+        <div class="mb-3">
+            <label class="form-label">Comments count</label>
+            <input class="form-control" type="number" name="comments"
+                placeholder="Enter your comments" />
+        </div>
+
+
+
+
+        <div class="mb-3">
+            <input class="btn btn-primary" type="submit" value="Predict your Like count" required />
+        </div>
+
+
+
+
+
+    </form>
+    <h2>
+       THE  prediction is {{results}}
+    </h2>
+   <body>
+</html>
